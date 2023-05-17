@@ -6,13 +6,13 @@
 #    By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/13 23:54:08 by gde-mora          #+#    #+#              #
-#    Updated: 2023/05/14 00:11:00 by gde-mora         ###   ########.fr        #
+#    Updated: 2023/05/17 19:05:18 by gde-mora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
-SRC = main.c
+SRC = main.c philo_utils.c
 
 OBJ = $(SRC:.c=.o)
 

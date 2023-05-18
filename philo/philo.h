@@ -6,7 +6,7 @@
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 00:06:15 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/05/17 21:04:17 by gde-mora         ###   ########.fr       */
+/*   Updated: 2023/05/17 21:43:54 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,8 @@ typedef struct s_data
 int		ft_atoi(const char *str);
 char	*ft_itoa_u(unsigned int n);
 int		ft_strcmp(char *s1, char *s2);
+
+// philo functions
+void	one_thread(t_data *data);
 
 #endif

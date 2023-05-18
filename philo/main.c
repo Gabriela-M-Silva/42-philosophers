@@ -6,7 +6,7 @@
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 00:06:05 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/05/17 21:05:47 by gde-mora         ###   ########.fr       */
+/*   Updated: 2023/05/17 21:42:08 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,9 @@ int	main(int argc, char **argv) //n pode usar exit no mandatorio
 	if (!is_numeric(argv) || !is_size_int(argv))
 		return (0);
 	set_args_infos(&data, argc, argv);
-	//verifica se é 1 ou mais filosofos
-	if (data->number_of_philosophers == 1)
-		one_thread(&data);
-	else
-		handle_threads(&data);
+	if (data.number_of_philosophers == 1)
+		one_thread(&data); //ver como ele funciona
+	//else
+	//	handle_threads(&data); //preciso ter as funções de comer, pensar e dormir
 	return (0);
 }

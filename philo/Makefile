@@ -6,19 +6,19 @@
 #    By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/13 23:54:08 by gde-mora          #+#    #+#              #
-#    Updated: 2023/05/17 19:05:18 by gde-mora         ###   ########.fr        #
+#    Updated: 2023/05/17 21:44:31 by gde-mora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
-SRC = main.c philo_utils.c
+SRC = main.c philo_utils.c one_philo.c acts.c 
 
 OBJ = $(SRC:.c=.o)
 
 HEADER = philo.h
 
-CCFLAGS = -Wall -Wextra -Werror
+CCFLAGS = -Wall -Wextra -Werror -pthread
 
 RM = rm -f
 

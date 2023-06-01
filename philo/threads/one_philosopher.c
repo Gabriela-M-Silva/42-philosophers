@@ -6,13 +6,13 @@
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 21:15:46 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/06/01 04:43:36 by gde-mora         ###   ########.fr       */
+/*   Updated: 2023/06/01 05:26:50 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/philosophers.h"
 
-static void *routine(void *data)
+static void *mini_routine(void *data)
 {
 	t_table	*aux;
 
@@ -28,7 +28,6 @@ void	one_thread(t_table *data)
 {
 	pthread_t	philo1;
 
-	pthread_create(&philo1, NULL, &routine, data);
+	pthread_create(&philo1, NULL, &mini_routine, data);
 	pthread_join(philo1, NULL);
-	free_data(data);
 }

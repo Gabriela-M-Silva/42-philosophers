@@ -6,7 +6,7 @@
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 23:05:56 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/05/31 01:30:01 by gde-mora         ###   ########.fr       */
+/*   Updated: 2023/06/01 07:39:23 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,6 @@ void	init_table(t_table *data, int argc, char **argv)
 		data->number_of_times_to_eat = ft_atoi(argv[5]);
 	data->start_time = get_current_time();
 	init_forks_and_philos(data);
+	pthread_mutex_init(&data->dead_mutex, NULL);
+	pthread_mutex_init(&data->meal_mutex, NULL);
 }

@@ -6,7 +6,7 @@
 #    By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/13 23:54:08 by gde-mora          #+#    #+#              #
-#    Updated: 2023/06/01 03:53:07 by gde-mora         ###   ########.fr        #
+#    Updated: 2023/06/01 07:36:00 by gde-mora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,11 @@ SRC = 	init/main.c \
 		time/get_current_time.c \
 		threads/start_simulation.c \
 		threads/one_philosopher.c \
-		destroy/free_data.c
+		threads/create_threads.c \
+		destroy/free_data.c \
+		routine/routine.c \
+		routine/check_table.c \
+		routine/check_dead.c
 
 OBJ = $(SRC:.c=.o)
 

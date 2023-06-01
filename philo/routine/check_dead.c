@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions.c                                          :+:      :+:    :+:   */
+/*   check_dead.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 21:28:12 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/06/01 03:53:57 by gde-mora         ###   ########.fr       */
+/*   Created: 2023/06/01 07:29:18 by gde-mora          #+#    #+#             */
+/*   Updated: 2023/06/01 07:36:23 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../headers/philosophers.h"
 
-int	eating(t_data *data)
+int	check_dead(t_philo *philo)
 {
-	//verificar se ta td mundo vivo antes
-	printf("timestamp_in_ms X is eating"); //arrumar msg
-	return (0);
-}
+	int	result;
 
-int sleeping(t_data *data)
-{
-	//
-	printf("timestamp_in_ms X is sleeping"); //
-	return (0);
-}
-
-int thinking(t_data *data)
-{
-	//
-	printf("timestamp_in_ms X is thinking"); //
-	return (0);
+	result = 0;
+	pthread_mutex_lock(&philo->data->dead_mutex);
+	if (philo->data->is_philo_dead == 1)
+		result = 1;
+	pthread_mutex_unlock(&philo->data->dead_mutex);
+	return (result);
 }

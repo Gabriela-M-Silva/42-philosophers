@@ -6,7 +6,7 @@
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 02:09:29 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/05/31 02:35:01 by gde-mora         ###   ########.fr       */
+/*   Updated: 2023/06/01 06:06:03 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	start_simulation(t_table *data)
 {
-	if (data->number_of_philosophers == 1) //talvez eu tire, se o handle ja fizer oq precisa
-		one_thread(data); //ver como ele funciona
-	//else
-	//handle_threads(&data); //preciso ter as funções de comer, pensar e dormir
+	if (data->number_of_philosophers == 1)
+		one_thread(data);
+	else
+		create_threads(data);
+	free_data(data);
 }

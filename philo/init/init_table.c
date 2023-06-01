@@ -6,7 +6,7 @@
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 23:05:56 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/06/01 09:13:29 by gde-mora         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:31:25 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,5 @@ void	init_table(t_table *data, int argc, char **argv)
 	pthread_mutex_init(&data->dead_mutex, NULL);
 	pthread_mutex_init(&data->meal_mutex, NULL);
 	pthread_mutex_init(&data->full_mutex, NULL);
+	pthread_mutex_init(&data->printf_mutex, NULL);
 }

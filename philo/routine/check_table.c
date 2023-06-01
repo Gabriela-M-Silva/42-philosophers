@@ -6,7 +6,7 @@
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 05:23:18 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/06/01 09:50:15 by gde-mora         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:36:48 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@ static int	set_dead(t_table *data, int i)
 		pthread_mutex_lock(&data->dead_mutex);
 		data->is_philo_dead = 1;
 		pthread_mutex_unlock(&data->dead_mutex);
+		pthread_mutex_lock(&data->printf_mutex);
 		printf("%ld %d died\n", \
 			get_current_time() - data->start_time, data->philos[i].id + 1);
+		pthread_mutex_unlock(&data->printf_mutex);
 		pthread_mutex_unlock(&data->full_mutex);
 		pthread_mutex_unlock(&data->meal_mutex);
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 21:28:12 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/06/01 10:10:49 by gde-mora         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:35:05 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,20 @@ static void	eating(t_philo *philo)
 	aux_mutex_eating(philo, 0);
 	if (!check_dead(philo))
 	{
+		pthread_mutex_lock(&philo->data->printf_mutex);
 		printf("%ld %d has taken a fork\n", \
 			get_current_time() - philo->data->start_time, philo->id + 1);
+		pthread_mutex_unlock(&philo->data->printf_mutex);
 		pthread_mutex_lock(&philo->data->meal_mutex);
 		philo->last_meal = get_current_time();
 		pthread_mutex_unlock(&philo->data->meal_mutex);
 		if (!check_dead(philo))
+		{
+			pthread_mutex_lock(&philo->data->printf_mutex);
 			printf("%ld %d is eating\n", \
 				get_current_time() - philo->data->start_time, philo->id + 1);
+			pthread_mutex_unlock(&philo->data->printf_mutex);
+		}
 		usleep(philo->data->time_to_eat * 1000);
 	}
 	aux_mutex_eating(philo, 1);
@@ -58,8 +64,10 @@ static void	sleeping(t_philo *philo)
 {
 	if (check_dead(philo))
 		return ;
+	pthread_mutex_lock(&philo->data->printf_mutex);
 	printf("%ld %d is sleeping\n", \
 		get_current_time() - philo->data->start_time, philo->id + 1);
+	pthread_mutex_unlock(&philo->data->printf_mutex);
 	usleep(philo->data->time_to_sleep * 1000);
 }
 
@@ -67,8 +75,10 @@ static void	thinking(t_philo *philo)
 {
 	if (check_dead(philo))
 		return ;
+	pthread_mutex_lock(&philo->data->printf_mutex);
 	printf("%ld %d is thinking\n", \
 		get_current_time() - philo->data->start_time, philo->id + 1);
+	pthread_mutex_unlock(&philo->data->printf_mutex);
 }
 
 void	*routine(void *p)

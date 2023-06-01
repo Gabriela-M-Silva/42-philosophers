@@ -6,13 +6,13 @@
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 21:15:46 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/06/01 05:26:50 by gde-mora         ###   ########.fr       */
+/*   Updated: 2023/06/01 08:45:46 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/philosophers.h"
 
-static void *mini_routine(void *data)
+static void	*mini_routine(void *data)
 {
 	t_table	*aux;
 

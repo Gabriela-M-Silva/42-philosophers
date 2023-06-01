@@ -6,7 +6,7 @@
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 05:23:18 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/06/01 07:45:32 by gde-mora         ###   ########.fr       */
+/*   Updated: 2023/06/01 08:31:13 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ void	*check_table(void *p)
 		i++;
 		if (i == data->number_of_philosophers)
 			i = 0;
-		usleep(2000); //pode ser isso tbm
+		//usleep(2000); //qual valor?
 	}
 }

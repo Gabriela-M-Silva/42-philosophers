@@ -6,7 +6,7 @@
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 23:05:56 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/06/01 07:39:23 by gde-mora         ###   ########.fr       */
+/*   Updated: 2023/06/01 08:44:46 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ static void	init_forks_and_philos(t_table *data)
 	int	i;
 
 	i = 0;
-	data->forks = malloc(data->number_of_philosophers * sizeof(pthread_mutex_t));
-	data->philos = malloc(data->number_of_philosophers * sizeof(t_philo)); //colocar verificação nos malloc?
+	data->forks = malloc(data->number_of_philosophers \
+		* sizeof(pthread_mutex_t));
+	data->philos = malloc(data->number_of_philosophers * sizeof(t_philo));
 	while (i < data->number_of_philosophers)
 	{
 		pthread_mutex_init(&data->forks[i], NULL);
@@ -36,7 +37,7 @@ static void	init_forks_and_philos(t_table *data)
 
 void	init_table(t_table *data, int argc, char **argv)
 {
-	data->number_of_philosophers = ft_atoi(argv[1]); //podem ter erro?
+	data->number_of_philosophers = ft_atoi(argv[1]);
 	data->time_to_die = ft_atoi(argv[2]);
 	data->time_to_eat = ft_atoi(argv[3]);
 	data->time_to_sleep = ft_atoi(argv[4]);

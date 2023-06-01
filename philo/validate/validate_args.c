@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   validate_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/14 00:06:05 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/05/17 21:42:08 by gde-mora         ###   ########.fr       */
+/*   Created: 2023/05/30 22:48:22 by gde-mora          #+#    #+#             */
+/*   Updated: 2023/05/30 23:08:17 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../headers/philosophers.h"
 
 static int	is_numeric(char **argv)
 {
@@ -66,22 +66,8 @@ static int	is_size_int(char **argv)
 	return (1);
 }
 
-void	set_args_infos(t_data *data, int argc, char **argv)
+int	validate_args(int argc, char **argv)
 {
-	data->number_of_philosophers = ft_atoi(argv[1]);
-	data->time_to_die = ft_atoi(argv[2]);
-	data->time_to_eat = ft_atoi(argv[3]);
-	data->time_to_sleep = ft_atoi(argv[4]);
-	if (argc == 6)
-		data->number_of_times_to_eat = ft_atoi(argv[5]);
-	else
-		data->number_of_times_to_eat = -1;
-}
-
-int	main(int argc, char **argv) //n pode usar exit no mandatorio
-{
-	t_data	data;
-
 	if (argc < 5 || argc > 6)
 	{
 		printf("Error.\nInvalid number of arguments. \nTry: \n./philo ");
@@ -91,10 +77,5 @@ int	main(int argc, char **argv) //n pode usar exit no mandatorio
 	}
 	if (!is_numeric(argv) || !is_size_int(argv))
 		return (0);
-	set_args_infos(&data, argc, argv);
-	if (data.number_of_philosophers == 1)
-		one_thread(&data); //ver como ele funciona
-	//else
-	//	handle_threads(&data); //preciso ter as funções de comer, pensar e dormir
-	return (0);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 00:06:15 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/05/31 02:19:41 by gde-mora         ###   ########.fr       */
+/*   Updated: 2023/06/01 04:44:05 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ long int	get_current_time(void);
 // threads functions
 void		start_simulation(t_table *data);
 void		one_thread(t_table *data);
+void		free_data(t_table *data);
 //void	handle_threads(t_data *data);
 
 #endif

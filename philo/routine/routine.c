@@ -6,7 +6,7 @@
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 21:28:12 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/06/01 09:44:03 by gde-mora         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:10:49 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,9 @@ static void	eating(t_philo *philo)
 		pthread_mutex_lock(&philo->data->meal_mutex);
 		philo->last_meal = get_current_time();
 		pthread_mutex_unlock(&philo->data->meal_mutex);
-		printf("%ld %d is eating\n", \
-			get_current_time() - philo->data->start_time, philo->id + 1);
+		if (!check_dead(philo))
+			printf("%ld %d is eating\n", \
+				get_current_time() - philo->data->start_time, philo->id + 1);
 		usleep(philo->data->time_to_eat * 1000);
 	}
 	aux_mutex_eating(philo, 1);

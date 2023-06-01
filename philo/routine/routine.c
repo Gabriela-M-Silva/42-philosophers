@@ -6,7 +6,7 @@
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 21:28:12 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/06/01 08:42:19 by gde-mora         ###   ########.fr       */
+/*   Updated: 2023/06/01 09:44:03 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,12 @@ void	*routine(void *p)
 		eating(philo);
 		sleeping(philo);
 		thinking(philo);
+	}
+	if (!check_dead(philo))
+	{
+		pthread_mutex_lock(&philo->data->full_mutex);
+		philo->eat_full = 1;
+		pthread_mutex_unlock(&philo->data->full_mutex);
 	}
 	return (NULL);
 }

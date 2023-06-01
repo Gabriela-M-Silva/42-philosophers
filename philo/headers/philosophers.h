@@ -6,7 +6,7 @@
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 00:06:15 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/06/01 08:22:29 by gde-mora         ###   ########.fr       */
+/*   Updated: 2023/06/01 09:12:52 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_table
 	int				is_philo_dead;
 	pthread_mutex_t	dead_mutex;
 	pthread_mutex_t	meal_mutex;
+	pthread_mutex_t	full_mutex;
 	pthread_mutex_t	*forks;
 	struct s_philo	*philos;
 }	t_table;
@@ -38,6 +39,7 @@ typedef struct s_philo
 {
 	int				id;
 	long int		last_meal;
+	int				eat_full;
 	struct s_table	*data;
 }	t_philo;
 

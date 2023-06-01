@@ -6,7 +6,7 @@
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 02:37:02 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/06/01 08:22:21 by gde-mora         ###   ########.fr       */
+/*   Updated: 2023/06/01 09:09:36 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	free_data(t_table *data)
 	}
 	pthread_mutex_destroy(&data->dead_mutex);
 	pthread_mutex_destroy(&data->meal_mutex);
+	pthread_mutex_destroy(&data->full_mutex);
 	if (data->forks)
 		free(data->forks);
 	if (data->philos)

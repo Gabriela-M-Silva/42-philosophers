@@ -6,13 +6,13 @@
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 00:06:05 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/06/01 08:43:25 by gde-mora         ###   ########.fr       */
+/*   Updated: 2023/06/01 09:28:08 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/philosophers.h"
 
-int	main(int argc, char **argv) //n pode usar exit no mandatorio
+int	main(int argc, char **argv)
 {
 	t_table	data;
 

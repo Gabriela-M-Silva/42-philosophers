@@ -6,7 +6,7 @@
 /*   By: gde-mora <gde-mora@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 23:05:56 by gde-mora          #+#    #+#             */
-/*   Updated: 2023/06/01 08:44:46 by gde-mora         ###   ########.fr       */
+/*   Updated: 2023/06/01 09:13:29 by gde-mora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	init_forks_and_philos(t_table *data)
 	{
 		data->philos[i].id = i;
 		data->philos[i].last_meal = data->start_time;
+		data->philos[i].eat_full = 0;
 		data->philos[i].data = data;
 		i++;
 	}
@@ -47,4 +48,5 @@ void	init_table(t_table *data, int argc, char **argv)
 	init_forks_and_philos(data);
 	pthread_mutex_init(&data->dead_mutex, NULL);
 	pthread_mutex_init(&data->meal_mutex, NULL);
+	pthread_mutex_init(&data->full_mutex, NULL);
 }
